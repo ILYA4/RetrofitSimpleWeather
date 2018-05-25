@@ -1,4 +1,3 @@
-
 package com.example.ilya4.retrofitsimpleweather.pojo;
 
 import java.io.Serializable;

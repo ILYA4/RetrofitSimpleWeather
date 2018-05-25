@@ -1,10 +1,11 @@
-package com.example.ilya4.retrofitsimpleweather;
+package com.example.ilya4.retrofitsimpleweather.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.example.ilya4.retrofitsimpleweather.R;
 import com.example.ilya4.retrofitsimpleweather.network.APIInterface;
 import com.example.ilya4.retrofitsimpleweather.network.ApiClient;
 import com.example.ilya4.retrofitsimpleweather.pojo.WeatherPojo;
@@ -18,7 +19,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     APIInterface apiInterface;
-    ApiClient apiClient = new ApiClient();
+
     TextView mainText;
     private static final String TAG = "MainActivity";
 
@@ -29,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
         mainText = findViewById(R.id.main_text);
 
-        apiInterface = apiClient.getRetrofit().create(APIInterface.class);
+        apiInterface = ApiClient.getRestrofitInstance().create(APIInterface.class);
 
-        Call<WeatherPojo> pojoCall = apiInterface.getWeather("Moscow", APIKey.API_KEY);
+        Call<WeatherPojo> pojoCall = apiInterface.getWeather("Санкт-Петербург", APIKey.API_KEY);
 
         pojoCall.enqueue(new Callback<WeatherPojo>() {
             @Override
@@ -39,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG, "inOnResponse");
                 WeatherPojo data = response.body();
                 Log.e(TAG, response.toString());
-                mainText.setText(data.getName() + " " + Formuls.getTempCelsius(data.getMain().getTemp()) +"°С");
+                String s = data.getName() + " " + Formuls.getTempCelsius(data.getMain().getTemp()) +"°С";
+                mainText.setText(s);
             }
 
             @Override
@@ -48,6 +50,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
 }

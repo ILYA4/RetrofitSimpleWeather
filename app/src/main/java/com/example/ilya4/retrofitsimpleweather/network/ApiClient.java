@@ -7,12 +7,16 @@ public class ApiClient {
 
     private final static String BASE_URL = "https://api.openweathermap.org";
 
-    private Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
+    private static  Retrofit retrofit;
 
-    public Retrofit getRetrofit() {
+    public static Retrofit getRestrofitInstance() {
+
+        if (retrofit==null){
+            retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        }
         return retrofit;
     }
 }

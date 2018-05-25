@@ -1,10 +1,11 @@
 package com.example.ilya4.retrofitsimpleweather.utils;
 
 
+import java.text.DecimalFormat;
 
 public class Formuls {
 
-    public static double getTempCelsius(double kelvin){ ;
-        return kelvin - 273.15;
+    public static String getTempCelsius(double kelvin){
+        return new DecimalFormat("##.##").format(kelvin - 273.15);
     }
 }
