@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="weatherPojo"
+            type="com.example.ilya4.retrofitsimpleweather.pojo.WeatherPojo"/>
+    </data>
+
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.WeatherNowActivity">
+
+        <ImageView
+            android:id="@+id/main_image"
+            android:layout_width="0dp"
+            android:layout_height="220dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/city_name"
+            android:layout_width="203dp"
+            android:layout_height="49dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@{weatherPojo.name}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/temperature"
+            android:layout_width="118dp"
+            android:layout_height="46dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/city_name"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/description_weather"
+            android:layout_width="121dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/city_name"
+            app:layout_constraintTop_toBottomOf="@+id/city_name" />
+
+        <TextView
+            android:id="@+id/wind_tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/wind"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/main_image" />
+
+        <TextView
+            android:id="@+id/humidity_tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/humidity"
+            app:layout_constraintStart_toStartOf="@+id/wind_tx"
+            app:layout_constraintTop_toBottomOf="@+id/wind_tx" />
+
+        <TextView
+            android:id="@+id/pressure_tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/pressure"
+            app:layout_constraintStart_toStartOf="@+id/humidity_tx"
+            app:layout_constraintTop_toBottomOf="@+id/humidity_tx" />
+
+        <TextView
+            android:id="@+id/tempmin_txvalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text=""
+            app:layout_constraintStart_toStartOf="@+id/pressure_tx"
+            app:layout_constraintTop_toBottomOf="@+id/pressure_tx" />
+
+        <TextView
+            android:id="@+id/sunrise_tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/sunrise"
+            app:layout_constraintStart_toStartOf="@+id/tempmin_txvalue"
+            app:layout_constraintTop_toBottomOf="@+id/tempmin_txvalue" />
+
+        <TextView
+            android:id="@+id/sunset_tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/sunset"
+            app:layout_constraintStart_toStartOf="@+id/sunrise_tx"
+            app:layout_constraintTop_toBottomOf="@+id/sunrise_tx" />
+
+        <TextView
+            android:id="@+id/wind_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:text="@{String.valueOf(weatherPojo.wind.speed)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/wind_tx" />
+
+        <TextView
+            android:id="@+id/humidity_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="@+id/wind_value"
+            app:layout_constraintTop_toTopOf="@+id/humidity_tx" />
+
+        <TextView
+            android:id="@+id/pressure_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="@+id/humidity_value"
+            app:layout_constraintTop_toTopOf="@+id/pressure_tx" />
+
+        <TextView
+            android:id="@+id/tempmax_txvalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="@+id/pressure_value"
+            app:layout_constraintTop_toTopOf="@+id/tempmin_txvalue" />
+
+        <TextView
+            android:id="@+id/sunrise_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="@+id/tempmax_txvalue"
+            app:layout_constraintTop_toTopOf="@+id/sunrise_tx" />
+
+        <TextView
+            android:id="@+id/sunset_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="@+id/sunrise_value"
+            app:layout_constraintTop_toTopOf="@+id/sunset_tx" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

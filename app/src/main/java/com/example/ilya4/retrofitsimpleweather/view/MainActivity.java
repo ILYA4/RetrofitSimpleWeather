@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<WeatherPojo> call, Throwable t) {
-                Log.e(TAG, "Error, onFailure");
+                Log.e(TAG, t.getMessage());
             }
         });
     }

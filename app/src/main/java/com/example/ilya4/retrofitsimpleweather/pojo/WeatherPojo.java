@@ -1,15 +1,17 @@
 
 package com.example.ilya4.retrofitsimpleweather.pojo;
 
+
+
 import java.io.Serializable;
 import java.util.List;
+
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class WeatherPojo implements Serializable
 {
-
     @SerializedName("coord")
     @Expose
     private Coord coord;
@@ -143,5 +145,6 @@ public class WeatherPojo implements Serializable
     public void setCod(Integer cod) {
         this.cod = cod;
     }
+
 
 }
