@@ -7,4 +7,17 @@
     <string name="tempmax">T max</string>
     <string name="sunrise">Sunrise</string>
     <string name="sunset">Sunset</string>
+    <string name="mmHg">mm Hg</string>
+    <string name="speed_of_wind">m/s</string>
+    
+    <string-array name="direction_of_wind">
+        <item>northern</item>
+        <item>northeastern</item>
+        <item>eastern</item>
+        <item>southeastern</item>
+        <item>southern</item>
+        <item>southwestern</item>
+        <item>western</item>
+        <item>northwestern</item>
+    </string-array>
 </resources>

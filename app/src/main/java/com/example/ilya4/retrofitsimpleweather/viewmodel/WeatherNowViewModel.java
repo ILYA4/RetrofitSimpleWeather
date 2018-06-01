@@ -37,6 +37,7 @@ public class WeatherNowViewModel extends ViewModel {
             @Override
             public void onResponse(Call<WeatherPojo> call, Response<WeatherPojo> response) {
                 Log.v(TAG, "onResponseMethod");
+                Log.v(TAG, response.toString());
                 WeatherPojo pojo = response.body();
                 weatherPojo.postValue(pojo);
             }

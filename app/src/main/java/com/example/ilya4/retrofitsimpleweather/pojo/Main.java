@@ -2,6 +2,8 @@
 package com.example.ilya4.retrofitsimpleweather.pojo;
 
 import java.io.Serializable;
+
+import com.example.ilya4.retrofitsimpleweather.utils.Formuls;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -16,7 +18,7 @@ public class Main implements Serializable
     private Double pressure;
     @SerializedName("humidity")
     @Expose
-    private Integer humidity;
+    private Double humidity;
     @SerializedName("temp_min")
     @Expose
     private Double tempMin;
@@ -41,11 +43,11 @@ public class Main implements Serializable
         this.pressure = pressure;
     }
 
-    public Integer getHumidity() {
+    public Double getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(Integer humidity) {
+    public void setHumidity(Double humidity) {
         this.humidity = humidity;
     }
 

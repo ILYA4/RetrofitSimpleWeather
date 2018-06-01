@@ -1,4 +1,4 @@
-package com.example.ilya4.retrofitsimpleweather.view;
+package com.example.ilya4.retrofitsimpleweather;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
