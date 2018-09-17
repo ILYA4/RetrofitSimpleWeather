@@ -9,7 +9,7 @@
     <string name="sunset">Sunset</string>
     <string name="mmHg">mm Hg</string>
     <string name="speed_of_wind">m/s</string>
-    
+
     <string-array name="direction_of_wind">
         <item>northern</item>
         <item>northeastern</item>
@@ -20,4 +20,5 @@
         <item>western</item>
         <item>northwestern</item>
     </string-array>
+    <string name="settings">Settings</string>
 </resources>

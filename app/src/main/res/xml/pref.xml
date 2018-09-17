@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+        android:key="city"
+        android:summary="location"
+        android:title="City"
+        android:defaultValue="Saint-Petersburg">
+    </EditTextPreference>
+</PreferenceScreen>

@@ -3,8 +3,11 @@ package com.example.ilya4.retrofitsimpleweather.viewmodel;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
+import com.example.ilya4.retrofitsimpleweather.App;
 import com.example.ilya4.retrofitsimpleweather.network.APIInterface;
 import com.example.ilya4.retrofitsimpleweather.network.ApiClient;
 import com.example.ilya4.retrofitsimpleweather.pojo.WeatherPojo;
@@ -19,6 +22,7 @@ public class WeatherNowViewModel extends ViewModel {
     private MutableLiveData<WeatherPojo> weatherPojo;
     private static final String TAG = "WeatherNowViewModel";
     private APIInterface apiInterface;
+    private SharedPreferences sp;
 
     public LiveData<WeatherPojo> getWeatherPojo() {
         if (weatherPojo==null){
@@ -30,7 +34,9 @@ public class WeatherNowViewModel extends ViewModel {
 
     private void loadWeatherPojo(){
         apiInterface = ApiClient.getRestrofitInstance().create(APIInterface.class);
-        Call<WeatherPojo> pojoCall = apiInterface.getWeather("Санкт-Петербург", APIKey.API_KEY);
+        sp = PreferenceManager.getDefaultSharedPreferences(App.getContext());
+        String city = sp.getString("city", "Saint Petersburg");
+        Call<WeatherPojo> pojoCall = apiInterface.getWeather(city, APIKey.API_KEY);
 
 
         pojoCall.enqueue(new Callback<WeatherPojo>() {
