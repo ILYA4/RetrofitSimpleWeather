@@ -21,4 +21,7 @@
         <item>northwestern</item>
     </string-array>
     <string name="settings">Settings</string>
+    <string name="refresh_button">Refresh</string>
+    <string name="city_not_found">City Not Found, please, Change a city in Settings</string>
+    <string name="location">Get Location in Log</string>
 </resources>

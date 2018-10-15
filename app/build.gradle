@@ -1,4 +1,6 @@
+
 apply plugin: 'com.android.application'
+
 
 android {
     compileSdkVersion 27
@@ -34,4 +36,5 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation "android.arch.lifecycle:extensions:1.1.0"
     implementation "android.arch.lifecycle:viewmodel:1.1.0"
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
 }

@@ -27,8 +27,8 @@ public class WeatherNowViewModel extends ViewModel {
     public LiveData<WeatherPojo> getWeatherPojo() {
         if (weatherPojo==null){
             weatherPojo = new MutableLiveData<WeatherPojo>();
-            loadWeatherPojo();
         }
+        loadWeatherPojo();
         return weatherPojo;
     }
 
@@ -36,6 +36,7 @@ public class WeatherNowViewModel extends ViewModel {
         apiInterface = ApiClient.getRestrofitInstance().create(APIInterface.class);
         sp = PreferenceManager.getDefaultSharedPreferences(App.getContext());
         String city = sp.getString("city", "Saint Petersburg");
+        Log.v(TAG, city + " now");
         Call<WeatherPojo> pojoCall = apiInterface.getWeather(city, APIKey.API_KEY);
 
 
