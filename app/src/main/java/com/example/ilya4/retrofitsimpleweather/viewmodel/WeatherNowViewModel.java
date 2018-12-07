@@ -8,10 +8,13 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.example.ilya4.retrofitsimpleweather.App;
+import com.example.ilya4.retrofitsimpleweather.WeatherNowActivity;
 import com.example.ilya4.retrofitsimpleweather.network.APIInterface;
 import com.example.ilya4.retrofitsimpleweather.network.ApiClient;
 import com.example.ilya4.retrofitsimpleweather.pojo.WeatherPojo;
 import com.example.ilya4.retrofitsimpleweather.utils.APIKey;
+import com.example.ilya4.retrofitsimpleweather.utils.GPS;
+import com.google.android.gms.location.FusedLocationProviderClient;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -23,8 +26,10 @@ public class WeatherNowViewModel extends ViewModel {
     private static final String TAG = "WeatherNowViewModel";
     private APIInterface apiInterface;
     private SharedPreferences sp;
+    private FusedLocationProviderClient mFusedLocationProviderClient;
 
-    public LiveData<WeatherPojo> getWeatherPojo() {
+    public LiveData<WeatherPojo> getWeatherPojo(FusedLocationProviderClient mFusedLocationProviderClient) {
+        this.mFusedLocationProviderClient=mFusedLocationProviderClient;
         if (weatherPojo==null){
             weatherPojo = new MutableLiveData<WeatherPojo>();
         }
@@ -35,7 +40,14 @@ public class WeatherNowViewModel extends ViewModel {
     private void loadWeatherPojo(){
         apiInterface = ApiClient.getRestrofitInstance().create(APIInterface.class);
         sp = PreferenceManager.getDefaultSharedPreferences(App.getContext());
-        String city = sp.getString("city", "Saint Petersburg");
+        boolean autoLocation = sp.getBoolean("autolocation", true);
+        String city;
+        if (autoLocation){
+            GPS.getLocation(mFusedLocationProviderClient);
+            city = GPS.getCurrentCity();
+        }else city = sp.getString("city", "");
+
+     //
         Log.v(TAG, city + " now");
         Call<WeatherPojo> pojoCall = apiInterface.getWeather(city, APIKey.API_KEY);
 

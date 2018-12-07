@@ -11,6 +11,7 @@ import com.example.ilya4.retrofitsimpleweather.network.ApiClient;
 import com.example.ilya4.retrofitsimpleweather.pojo.WeatherPojo;
 import com.example.ilya4.retrofitsimpleweather.utils.APIKey;
 import com.example.ilya4.retrofitsimpleweather.utils.Formuls;
+import com.example.ilya4.retrofitsimpleweather.utils.GPS;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,8 +32,9 @@ public class MainActivity extends AppCompatActivity {
         mainText = findViewById(R.id.main_text);
 
         apiInterface = ApiClient.getRestrofitInstance().create(APIInterface.class);
+        String city = GPS.getCurrentCity();
 
-        Call<WeatherPojo> pojoCall = apiInterface.getWeather("Санкт-Петербург", APIKey.API_KEY);
+        Call<WeatherPojo> pojoCall = apiInterface.getWeather(city, APIKey.API_KEY);
 
         pojoCall.enqueue(new Callback<WeatherPojo>() {
             @Override

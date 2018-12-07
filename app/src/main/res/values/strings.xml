@@ -24,4 +24,8 @@
     <string name="refresh_button">Refresh</string>
     <string name="city_not_found">City Not Found, please, Change a city in Settings</string>
     <string name="location">Get Location in Log</string>
+    <string name="city">City</string>
+    <string name="location_summary">location</string>
+    <string name="autolocdetermination_summary">Automatically locate</string>
+    <string name="autolocdetermination">Auto Location</string>
 </resources>
