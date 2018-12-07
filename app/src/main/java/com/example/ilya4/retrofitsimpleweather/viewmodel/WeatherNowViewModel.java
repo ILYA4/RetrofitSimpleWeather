@@ -8,6 +8,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.example.ilya4.retrofitsimpleweather.App;
+import com.example.ilya4.retrofitsimpleweather.R;
 import com.example.ilya4.retrofitsimpleweather.WeatherNowActivity;
 import com.example.ilya4.retrofitsimpleweather.network.APIInterface;
 import com.example.ilya4.retrofitsimpleweather.network.ApiClient;
@@ -49,7 +50,7 @@ public class WeatherNowViewModel extends ViewModel {
 
      //
         Log.v(TAG, city + " now");
-        Call<WeatherPojo> pojoCall = apiInterface.getWeather(city, APIKey.API_KEY);
+        Call<WeatherPojo> pojoCall = apiInterface.getWeather(city, APIKey.API_KEY, App.getContext().getString(R.string.language));
 
 
         pojoCall.enqueue(new Callback<WeatherPojo>() {

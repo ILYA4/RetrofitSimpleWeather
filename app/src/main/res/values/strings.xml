@@ -28,4 +28,5 @@
     <string name="location_summary">location</string>
     <string name="autolocdetermination_summary">Automatically locate</string>
     <string name="autolocdetermination">Auto Location</string>
+    <string name="language">en</string>
 </resources>

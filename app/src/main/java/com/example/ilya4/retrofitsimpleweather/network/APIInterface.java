@@ -11,6 +11,6 @@ import retrofit2.http.Query;
 public interface APIInterface {
 
    @GET("/data/2.5/weather?")
-    Call<WeatherPojo> getWeather(@Query("q") String q, @Query("appid") String key);
+    Call<WeatherPojo> getWeather(@Query("q") String q, @Query("appid") String key, @Query("lang") String language);
 
 }

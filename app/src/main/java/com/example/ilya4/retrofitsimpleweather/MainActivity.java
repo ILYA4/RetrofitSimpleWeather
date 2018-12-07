@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         apiInterface = ApiClient.getRestrofitInstance().create(APIInterface.class);
         String city = GPS.getCurrentCity();
 
-        Call<WeatherPojo> pojoCall = apiInterface.getWeather(city, APIKey.API_KEY);
+        Call<WeatherPojo> pojoCall = apiInterface.getWeather(city, APIKey.API_KEY, App.getContext().getString(R.string.language));
 
         pojoCall.enqueue(new Callback<WeatherPojo>() {
             @Override

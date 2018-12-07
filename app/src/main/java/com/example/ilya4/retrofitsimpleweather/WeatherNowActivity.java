@@ -65,8 +65,6 @@ public class WeatherNowActivity extends AppCompatActivity implements SwipeRefres
         super.onCreate(savedInstanceState);
 
                 checkPermission();
-       // mSwipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
-       //     mSwipeRefreshLayout.setOnRefreshListener(this);
             mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         binding = DataBindingUtil.setContentView(this,
                 R.layout.activity_weather_now);
@@ -84,6 +82,9 @@ public class WeatherNowActivity extends AppCompatActivity implements SwipeRefres
                 Log.v(TAG, "in onChanged method of .observe");
                 if (weatherPojo!= null){
                     binding.setWeatherPojo(weatherPojo);
+                    String weatherIcon = weatherPojo.getWeather().get(0).getIcon();
+                    int resID = getResources().getIdentifier("l" + weatherIcon, "drawable", getPackageName());
+                    binding.mainImage.setImageResource(resID);
                 }else binding.cityName.setText(R.string.city_not_found);
                 //  binding.setWeather(weatherPojo.getWeather().get(0));//update UI here?
             }
@@ -120,7 +121,4 @@ public class WeatherNowActivity extends AppCompatActivity implements SwipeRefres
         binding.swipeRefreshLayout.setRefreshing(false);
     }
 
-    public FusedLocationProviderClient getFusedLocationProviderClient() {
-        return mFusedLocationProviderClient;
-    }
 }
