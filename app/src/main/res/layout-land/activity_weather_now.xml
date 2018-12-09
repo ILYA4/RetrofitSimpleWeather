@@ -71,12 +71,12 @@
             android:id="@+id/wind_tx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginStart="228dp"
+            android:layout_marginLeft="228dp"
+            android:layout_marginTop="8dp"
             android:text="@string/wind"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/main_image" />
+            app:layout_constraintTop_toTopOf="@+id/main_image" />
 
         <TextView
             android:id="@+id/humidity_tx"

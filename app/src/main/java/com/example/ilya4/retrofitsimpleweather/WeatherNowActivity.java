@@ -85,6 +85,7 @@ public class WeatherNowActivity extends AppCompatActivity implements SwipeRefres
                     String weatherIcon = weatherPojo.getWeather().get(0).getIcon();
                     int resID = getResources().getIdentifier("l" + weatherIcon, "drawable", getPackageName());
                     binding.mainImage.setImageResource(resID);
+                    binding.descriptionWeather.setText(weatherPojo.getWeather().get(0).getDescription());
                 }else binding.cityName.setText(R.string.city_not_found);
                 //  binding.setWeather(weatherPojo.getWeather().get(0));//update UI here?
             }
