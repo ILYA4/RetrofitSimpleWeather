@@ -75,6 +75,7 @@
             android:layout_marginLeft="228dp"
             android:layout_marginTop="8dp"
             android:text="@string/wind"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/main_image" />
 
@@ -84,6 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/humidity"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/wind_tx"
             app:layout_constraintTop_toBottomOf="@+id/wind_tx" />
 
@@ -93,6 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/pressure"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/humidity_tx"
             app:layout_constraintTop_toBottomOf="@+id/humidity_tx" />
 
@@ -111,6 +114,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/sunrise"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/tempmin_txvalue"
             app:layout_constraintTop_toBottomOf="@+id/tempmin_txvalue" />
 
@@ -120,6 +124,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/sunset"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/sunrise_tx"
             app:layout_constraintTop_toBottomOf="@+id/sunrise_tx" />
 

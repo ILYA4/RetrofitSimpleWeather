@@ -99,24 +99,16 @@
             app:layout_constraintStart_toStartOf="@+id/humidity_tx"
             app:layout_constraintTop_toBottomOf="@+id/humidity_tx" />
 
-        <TextView
-            android:id="@+id/tempmin_txvalue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@{Formuls.getTempCelsiusMin(weatherPojo.main.tempMin)}"
-            app:layout_constraintStart_toStartOf="@+id/pressure_tx"
-            app:layout_constraintTop_toBottomOf="@+id/pressure_tx" />
 
         <TextView
             android:id="@+id/sunrise_tx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:text="@string/sunrise"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/tempmin_txvalue"
-            app:layout_constraintTop_toBottomOf="@+id/tempmin_txvalue" />
+            app:layout_constraintStart_toStartOf="@+id/pressure_tx"
+            app:layout_constraintTop_toBottomOf="@+id/pressure_tx" />
 
         <TextView
             android:id="@+id/sunset_tx"
@@ -154,20 +146,13 @@
             app:layout_constraintEnd_toEndOf="@+id/humidity_value"
             app:layout_constraintTop_toTopOf="@+id/pressure_tx" />
 
-        <TextView
-            android:id="@+id/tempmax_txvalue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{Formuls.getTempCelsiusMax(weatherPojo.main.tempMax)}"
-            app:layout_constraintEnd_toEndOf="@+id/pressure_value"
-            app:layout_constraintTop_toTopOf="@+id/tempmin_txvalue" />
 
         <TextView
             android:id="@+id/sunrise_value"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@{Formuls.getTimeFromMs(weatherPojo.sys.sunrise)}"
-            app:layout_constraintEnd_toEndOf="@+id/tempmax_txvalue"
+            app:layout_constraintEnd_toEndOf="@+id/pressure_value"
             app:layout_constraintTop_toTopOf="@+id/sunrise_tx" />
 
         <TextView
